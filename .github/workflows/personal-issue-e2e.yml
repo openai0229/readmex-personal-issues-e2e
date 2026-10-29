@@ -1,0 +1,13 @@
+name: Personal issue E2E
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+permissions:
+  contents: read
+jobs:
+  search-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify search fix fixture
+        run: node -e "const f=require('./e2e-search.json'); if (!f.fixed) { console.error('Search regression fixture intentionally failing'); process.exit(1); } console.log('Search regression fixture passed');"
