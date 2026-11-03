@@ -1,4 +1,5 @@
 {
   "fixed": true,
-  "scenario": "Chinese search Enter key"
+  "issue": 8,
+  "run": "20261103"
 }
